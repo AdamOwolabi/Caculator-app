@@ -1,0 +1,59 @@
+*,*::before, *::after{
+    box-sizing: border-box;
+    font-family: 'Gotham Rounded', sans-serif, Arial, Helvetica;
+    font-weight: normal;
+
+}
+body{
+    padding : 0;
+    margin: 0;
+    background: linear-gradient(to right, #efe2f1, #1f2124);
+    
+    /* margin : 0;  background is going to fill the entire screen */
+
+}
+
+.calculator-grid{
+    display: grid;
+    justify-content : center; /*center it horizontally */
+    align-content : center;  /*center it vertically */
+    min-height: 100vh;
+    grid-template-columns: repeat(4,100px); /**/
+    grid-template-rows : minmax(120px, auto) repeat(6, 100px);
+    transition: background-color 0.3s ease;
+
+}
+.calculator-grid > button{
+    cursor: pointer;
+    font-size: 2rem;
+    border : 1px solid white;
+    outline : none;
+    background-color: rgba(195, 100, 100, 0.75);
+}
+.calculator-grid > button:hover {
+    background-color: rgba(230, 149, 149, 0.9);
+} 
+.span-two{
+    grid-column: span 2;
+}
+.output{
+    grid-column: 1 / -1; /*Grid column to fit the resize to fit the user's inputs*/
+    background-color: rgba(87, 60, 60, 0.75);
+    display:flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word; /*breaks word to next line */
+    word-break: break-all;   /*break line to next line and prevent overflow*/
+
+}
+
+.output .previous-operand{
+    color: rgba(255,255,255,0.75);
+    font-size : 1.5rem;
+}
+.output .current-operand{
+    color: white;
+    font-size : 2.5rem;
+}
